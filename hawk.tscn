@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://dawphfoinjaqg"]
+
+[ext_resource type="Texture2D" uid="uid://yfvmu2ibpb2e" path="res://sprites/hawk1.png" id="1_g0264"]
+[ext_resource type="Script" path="res://scripts/hawk.gd" id="2_jfkqh"]
+[ext_resource type="Texture2D" uid="uid://8nx3d21nxumg" path="res://sprites/hawk3.png" id="3_vcnye"]
+[ext_resource type="Texture2D" uid="uid://bmdp5whriexhv" path="res://sprites/hawk2.png" id="4_flica"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w51bc"]
+size = Vector2(128, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p2uwv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_flica")
+}],
+"loop": true,
+"name": &"dive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_g0264")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vcnye")
+}],
+"loop": true,
+"name": &"search",
+"speed": 5.0
+}]
+
+[node name="hawk" type="CharacterBody2D"]
+script = ExtResource("2_jfkqh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_w51bc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_p2uwv")
+animation = &"search"

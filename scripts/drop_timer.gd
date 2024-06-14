@@ -8,7 +8,7 @@ extends Timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	connect("timeout", self, "_on_timeout")
+	connect("timeout", Callable(self, "_on_timeout"))
 	pass # Replace with function body.
 
 func _on_timeout():

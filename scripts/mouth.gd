@@ -1,4 +1,4 @@
-extends Sprite
+extends Sprite2D
 
 
 # Declare member variables here. Examples:
@@ -7,7 +7,7 @@ extends Sprite
 
 var open = preload("res://sprites/mouthopen.png");
 var blow = preload("res://sprites/mouthblow.png");
-onready var target = get_parent().get_node("Floatin");
+@onready var target = get_parent().get_node("Floatin");
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

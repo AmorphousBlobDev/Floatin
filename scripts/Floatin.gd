@@ -1,7 +1,7 @@
 extends RigidBody2D
-onready var empty_kitten = preload("res://scenes/empty_kitten.tscn")
-onready var liberated_kitten = preload("res://scenes/liberated_kitten.tscn")
-export var speed = 0.0;
+@onready var empty_kitten = preload("res://scenes/empty_kitten.tscn")
+@onready var liberated_kitten = preload("res://scenes/liberated_kitten.tscn")
+@export var speed = 0.0;
 var clickPoint = Vector2(0,0);
 var isClick = false;
 var kittens = [];
@@ -14,9 +14,9 @@ var kittens = [];
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	contact_monitor = true
-	contacts_reported = 1
+	max_contacts_reported = 1
 	set_linear_damp(100);
-	connect("body_entered", self, "_hit_kitten")
+	connect("body_entered", Callable(self, "_hit_kitten"))
 # warning-ignore:unused_argument
 func _process(delta):
 	clickPoint = get_global_mouse_position() - global_position;
@@ -32,7 +32,7 @@ func _integrate_forces(state):
 		linear_damp = 1;
 func _hit_kitten(body):
 	if(body.name.begins_with("kitten")):
-		var newKitten = empty_kitten.instance()
+		var newKitten = empty_kitten.instantiate()
 		add_child(newKitten)
 		var targetPos = Vector2(0,0)
 		if(kittens.size() > 0):
@@ -47,7 +47,7 @@ func _liberate_kitten():
 	var kitten = kittens.pop_back()
 	var kitPos = Vector2(kitten.global_position.x, kitten.global_position.y - 16)
 	kitten.queue_free()
-	var liberatedKitten = liberated_kitten.instance()
+	var liberatedKitten = liberated_kitten.instantiate()
 	liberatedKitten.name = 'kitten_liberated%s' % (kittens.size() + randf())
 	liberatedKitten.global_position = kitPos
 	get_parent().add_child(liberatedKitten)
