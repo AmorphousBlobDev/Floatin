@@ -16,6 +16,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if(!target): return
 	global_position = get_global_mouse_position();
 	look_at(target.global_position);
 	if(Input.is_mouse_button_pressed(1)):

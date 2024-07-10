@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwd016mw6k4oj"]
+
+[ext_resource type="Script" path="res://scripts/hawk_idle_state.gd" id="1_e7t0p"]
+
+[node name="HawkIdleState" type="Node2D"]
+script = ExtResource("1_e7t0p")

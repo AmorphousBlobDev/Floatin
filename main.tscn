@@ -27,3 +27,4 @@ position = Vector2(503, 476)
 position = Vector2(508, 69)
 
 [node name="hawk" parent="." instance=ExtResource("5_hsiqi")]
+position = Vector2(28, 160)

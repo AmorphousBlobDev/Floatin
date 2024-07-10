@@ -1,9 +1,15 @@
 res://default_env.tres
+res://scripts/state.gd
+res://scenes/state.tscn
+res://scripts/state_machine.gd
+res://scenes/hawk_idle_state.tscn
+res://hawk.tscn
+res://scripts/hawk_idle_state.gd
+res://scripts/hawk.gd
 res://main.tscn
 res://scenes/Floatin.tscn
 res://scenes/kitten.tscn
 res://scenes/liberated_kitten.tscn
 res://scenes/drop_off_island.tscn
-res://hawk.tscn
 res://scenes/empty_kitten.tscn
-res://scripts/hawk.gd
+res://scenes/state_machine.tscn
